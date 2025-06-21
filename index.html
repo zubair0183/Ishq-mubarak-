@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Ishq Mubarak - Heavenly Lyrics Player</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <title>Ishq Mubarak - Synced Lyrics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
-      background: linear-gradient(to bottom, #fce4ec, #e1f5fe);
+      background: linear-gradient(to bottom, #fff0f5, #e0f7fa);
       font-family: 'Poppins', sans-serif;
       display: flex;
       flex-direction: column;
@@ -16,46 +16,40 @@
       height: 100vh;
       overflow: hidden;
     }
-
     #upload-section {
       position: absolute;
       top: 20px;
       text-align: center;
     }
-
     input[type="file"] {
       padding: 8px;
       margin-bottom: 10px;
     }
-
     audio {
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(255, 182, 193, 0.6);
       margin-bottom: 20px;
     }
-
     #lyrics-container {
       text-align: center;
-      font-size: 1.8rem;
+      font-size: 1.7rem;
       color: #4a148c;
       font-family: 'Great Vibes', cursive;
       max-width: 90%;
+      padding: 10px;
     }
-
     .lyric-line {
       opacity: 0;
-      transition: all 1.5s ease;
+      transition: opacity 1.5s ease;
       margin: 10px 0;
     }
-
     .visible {
       opacity: 1;
     }
-
     .footer {
       position: absolute;
       bottom: 10px;
-      font-size: 12px;
+      font-size: 13px;
       color: #888;
     }
   </style>
@@ -70,72 +64,82 @@
 
   <div id="lyrics-container"></div>
 
-  <div class="footer">made with 💖 by <a href="https://instagram.com/ntg.justzubair" target="_blank">@ntg.justzubair</a></div>
+  <div class="footer">
+    made with 💖 by <a href="https://instagram.com/ntg.justzubair" target="_blank">@ntg.justzubair</a>
+  </div>
 
   <script>
     const lyrics = [
-      { time: 2, text: "Ishq mubarak, dard mubarak" },
-      { time: 7, text: "Ishq mubarak, dard mubarak" },
-      { time: 12, text: "Ishq mubarak, dard mubarak" },
-      { time: 17, text: "Teri baarishein bhigaye muje" },
-      { time: 21, text: "Teri hawaayen bahaaye muje" },
-      { time: 25, text: "Paanv tale mere zaminein chal padi" },
-      { time: 29, text: "Aisa to kabhi hua hee nahin" },
-      { time: 33, text: "Ai mere dil mubarak ho, yahi to pyaar hai" },
-      { time: 38, text: "Ai mere dil mubarak ho, yahi to pyaar hai" },
-      { time: 44, text: "Ishq mubarak, dard mubarak" },
-      { time: 49, text: "Ishq mubarak, dard mubarak" },
-      { time: 54, text: "Ishq mubarak, dard mubarak" },
-      { time: 59, text: "Ishq mubarak, dard mubarak" },
-      { time: 65, text: "Aisa lagtaa hai kyun teri aankhen jaise" },
-      { time: 69, text: "Aankhon mein meri rah gayi" },
-      { time: 73, text: "Kabhi pehle maine naa suni jo" },
-      { time: 77, text: "Aisee baathen kah gayi" },
-      { time: 81, text: "Too hee too hai jo har tharaf mere" },
-      { time: 85, text: "To tujhse pare main jaaoon kahaan" },
-      { time: 89, text: "Mere dil mubarak ho yahi to pyaar hai" },
-      { time: 94, text: "Ai mere dil mubarak ho, yahi to pyaar hai" },
-      { time: 100, text: "Jahaan pehle-pahal too aa milaa tha" },
-      { time: 104, text: "Teharaa hoon vahee main abhee" },
-      { time: 108, text: "Tera dil vo shahar hai" },
-      { time: 112, text: "Jis shahar se jaa ke lautaa naa main kabhi" },
-      { time: 116, text: "Laapataa-sa mil jaaoon kaheen to" },
-      { time: 120, text: "Mujse bhee muje milaa de zaraa" },
-      { time: 124, text: "Ai mere dil mubarak ho, yahi to pyaar hai" },
-      { time: 129, text: "Ai mere dil mubarak ho, yahi to pyaar hai" },
-      { time: 134, text: "Ishq mubarak, ishq mubarak" },
-      { time: 138, text: "Ishq mubarak, dard mubarak" },
-      { time: 142, text: "Ishq mubarak, dard mubarak" },
-      { time: 147, text: "Ishq mubarak, dard mubarak" },
-      { time: 152, text: "Ishq mubarak..." }
+      { time: 1, text: "Ishq mubarak, rang mubarak" },
+      { time: 5, text: "Ishq mubarak, rang mubarak" },
+
+      { time: 32, text: "Teri baarishein bhigaaye mujhe" },
+      { time: 37, text: "Teri hawayein bahaye mujhe" },
+      { time: 41, text: "Paaon tale mere" },
+      { time: 44, text: "Zameene chal padi" },
+      { time: 48, text: "Aisa toh kabhi hua hi nahi" },
+
+      { time: 61, text: "Ae mere dil mubarak ho" },
+      { time: 66, text: "Yahi toh pyar hai" },
+      { time: 71, text: "Ae mere dil mubarak ho" },
+      { time: 76, text: "Yahi toh pyar hai" },
+
+      { time: 83, text: "Ishq mubarak, rang mubarak" },
+      { time: 88, text: "Ishq mubarak, rang mubarak" },
+
+      { time: 105, text: "Aisa lagta hai kyun" },
+      { time: 109, text: "Teri aankhein jaise" },
+      { time: 113, text: "Aankhon mein meri reh gayi" },
+      { time: 118, text: "Kabhi pehle maine na suni jo" },
+      { time: 122, text: "Aisi baatein keh gayi" },
+      { time: 127, text: "Tu hi tu hai jo har taraf mere" },
+      { time: 132, text: "Toh tujhse pare main jaun kahaan" },
+
+      { time: 151, text: "Mere dil mubarak ho" },
+      { time: 156, text: "Yahi toh pyar hai" },
+      { time: 161, text: "Ae mere dil mubarak ho" },
+      { time: 166, text: "Yahi toh pyar hai" },
+
+      { time: 196, text: "Jahan pehle pehal tu aa mila tha" },
+      { time: 201, text: "Tehra hoon wahi main bhi" },
+      { time: 206, text: "Tera dil woh shehar hai" },
+      { time: 211, text: "Jis shehar se jaake laute na main kabhi" },
+      { time: 217, text: "Lapata sa mil jaun kahi toh" },
+      { time: 222, text: "Mujhse bhi mujhe mila de zara" },
+
+      { time: 235, text: "Ae mere dil mubarak ho" },
+      { time: 240, text: "Yahi toh pyar hai" },
+      { time: 245, text: "Ae mere dil mubarak ho" },
+      { time: 250, text: "Yahi toh pyar hai" },
+
+      { time: 258, text: "Ishq mubarak, rang mubarak" },
+      { time: 263, text: "Ishq mubarak, rang mubarak" },
+      { time: 268, text: "Ishq mubarak, rang mubarak" },
+      { time: 273, text: "Ishq mubarak.." }
     ];
 
     const container = document.getElementById("lyrics-container");
 
     function showLyrics() {
-      lyrics.forEach((line, index) => {
+      lyrics.forEach((line) => {
         const div = document.createElement("div");
         div.className = "lyric-line";
         div.textContent = line.text;
         container.appendChild(div);
-
-        setTimeout(() => {
-          div.classList.add("visible");
-        }, line.time * 1000);
+        setTimeout(() => div.classList.add("visible"), line.time * 1000);
       });
     }
 
     document.getElementById("audioUpload").addEventListener("change", function () {
       const file = this.files[0];
       if (file) {
-        const url = URL.createObjectURL(file);
         const audio = document.getElementById("audio-player");
-        audio.src = url;
+        audio.src = URL.createObjectURL(file);
         audio.play();
         container.innerHTML = "";
-        setTimeout(showLyrics, 1000);
+        audio.onplay = () => showLyrics();
       }
     });
   </script>
 </body>
-    </html>
+</html>
